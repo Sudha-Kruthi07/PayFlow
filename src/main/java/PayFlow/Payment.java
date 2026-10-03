@@ -22,8 +22,9 @@ public class Payment {
     @Column(nullable = false, length = 3)
     private String currency;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 30)
-    private String status;
+    private PaymentStatus status;
 
     @Column(length = 255)
     private String description;
@@ -56,7 +57,7 @@ public class Payment {
         return currency;
     }
 
-    public String getStatus() {
+    public PaymentStatus getStatus() {
         return status;
     }
 
@@ -88,7 +89,7 @@ public class Payment {
         this.currency = currency;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(PaymentStatus status) {
         this.status = status;
     }
 

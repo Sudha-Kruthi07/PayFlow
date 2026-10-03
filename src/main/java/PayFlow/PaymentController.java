@@ -1,5 +1,6 @@
 package PayFlow;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +16,8 @@ public class PaymentController {
     }
 
     @PostMapping
-    public Payment createPayment(@RequestBody Payment payment) {
-        return paymentService.createPayment(payment);
+    public Payment createPayment(@Valid @RequestBody PaymentRequest request) {
+        return paymentService.createPayment(request);
     }
 
     @PostMapping("/{id}/process")
